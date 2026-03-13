@@ -1,0 +1,72 @@
+2025-12-15 18:09:56,996 - INFO - App started – AI-FitStyler loading...
+2025-12-15 18:09:57,030 - INFO - User inputs: Gender=male, Occasion=casual, Budget=$50
+2025-12-15 18:09:57,067 - INFO - Manual body type selected: slim
+2025-12-15 18:09:57,123 - INFO - App session ended
+2025-12-15 18:09:57,696 - WARNING - From G:\fitstyler\venv\Lib\site-packages\keras\src\backend\common\global_state.py:82: The name tf.reset_default_graph is deprecated. Please use tf.compat.v1.reset_default_graph instead.
+
+2025-12-15 18:10:07,667 - INFO - App started – AI-FitStyler loading...
+2025-12-15 18:10:07,678 - INFO - User inputs: Gender=male, Occasion=casual, Budget=$50
+2025-12-15 18:10:07,691 - INFO - Photo uploaded – starting analysis
+2025-12-15 18:10:08,995 - INFO - Body type detected: athletic
+2025-12-15 18:10:09,922 - INFO - Skin tone detected: fair, Palette length: 6
+2025-12-15 18:10:10,118 - INFO - Temp photo cleaned up
+2025-12-15 18:10:10,123 - INFO - App session ended
+2025-12-15 18:10:20,256 - INFO - App started – AI-FitStyler loading...
+2025-12-15 18:10:20,262 - INFO - User inputs: Gender=male, Occasion=casual, Budget=$50
+2025-12-15 18:10:20,270 - INFO - Photo uploaded – starting analysis
+2025-12-15 18:10:21,092 - INFO - Body type detected: athletic
+2025-12-15 18:10:21,258 - INFO - Skin tone detected: fair, Palette length: 6
+2025-12-15 18:10:21,498 - INFO - Temp photo cleaned up
+2025-12-15 18:10:21,505 - INFO - Outfit suggestions button clicked
+2025-12-15 18:10:22,856 - INFO - Generating outfit suggestions...
+2025-12-15 18:10:22,865 - INFO - Loading faiss with AVX2 support.
+2025-12-15 18:10:22,959 - INFO - Successfully loaded faiss with AVX2 support.
+2025-12-15 18:10:23,055 - INFO - Polished suggestions generated: 10
+2025-12-15 18:10:23,055 - INFO - Trend critique done: 10 suggestions
+2025-12-15 18:10:23,056 - INFO - Filtered suggestions: 4
+2025-12-15 18:10:23,057 - INFO - Showing 3 outfits to user
+2025-12-15 18:10:26,670 - INFO - App session ended
+2025-12-15 18:11:07,917 - INFO - App started – AI-FitStyler loading...
+2025-12-15 18:11:07,966 - INFO - User inputs: Gender=male, Occasion=casual, Budget=$50
+2025-12-15 18:11:07,970 - INFO - Cache cleared by user
+2025-12-15 18:11:08,164 - INFO - Photo uploaded – starting analysis
+2025-12-15 18:11:09,350 - INFO - Body type detected: athletic
+2025-12-15 18:11:09,541 - INFO - Skin tone detected: fair, Palette length: 6
+2025-12-15 18:11:09,730 - INFO - Temp photo cleaned up
+2025-12-15 18:11:09,737 - INFO - App session ended
+2025-12-15 18:11:19,127 - INFO - App started – AI-FitStyler loading...
+2025-12-15 18:11:19,226 - INFO - User inputs: Gender=male, Occasion=casual, Budget=$50
+2025-12-15 18:11:19,372 - INFO - Manual body type selected: slim
+2025-12-15 18:11:19,434 - INFO - App session ended
+2025-12-15 18:11:29,428 - INFO - App started – AI-FitStyler loading...
+2025-12-15 18:11:29,437 - INFO - User inputs: Gender=male, Occasion=casual, Budget=$48
+2025-12-15 18:11:29,618 - INFO - Manual body type selected: slim
+2025-12-15 18:11:29,648 - INFO - App session ended
+2025-12-15 18:11:31,911 - INFO - App started – AI-FitStyler loading...
+2025-12-15 18:11:31,922 - INFO - User inputs: Gender=male, Occasion=casual, Budget=$483
+2025-12-15 18:11:31,930 - INFO - Manual body type selected: slim
+2025-12-15 18:11:31,934 - INFO - App session ended
+2025-12-15 18:11:43,020 - INFO - App started – AI-FitStyler loading...
+2025-12-15 18:11:43,028 - INFO - User inputs: Gender=male, Occasion=casual, Budget=$483
+2025-12-15 18:11:43,036 - INFO - Manual body type selected: slim
+2025-12-15 18:11:43,039 - INFO - Outfit suggestions button clicked
+2025-12-15 18:11:44,532 - INFO - Generating outfit suggestions...
+2025-12-15 18:11:44,568 - INFO - Polished suggestions generated: 10
+2025-12-15 18:11:44,570 - INFO - Trend critique done: 10 suggestions
+2025-12-15 18:11:44,573 - INFO - Filtered suggestions: 7
+2025-12-15 18:11:44,576 - INFO - Showing 3 outfits to user
+2025-12-15 18:11:48,388 - INFO - App session ended
+2025-12-15 18:13:10,187 - INFO - Use pytorch device_name: cpu
+2025-12-15 18:13:10,188 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-15 18:13:16,615 - INFO - Use pytorch device_name: cpu
+2025-12-15 18:13:16,615 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-15 18:13:21,527 - INFO - App started – AI-FitStyler loading...
+2025-12-15 18:13:21,535 - INFO - User inputs: Gender=male, Occasion=casual, Budget=$483
+2025-12-15 18:13:21,586 - INFO - Manual body type selected: slim
+2025-12-15 18:13:21,625 - INFO - Outfit suggestions button clicked
+2025-12-15 18:13:22,935 - INFO - Generating outfit suggestions...
+2025-12-15 18:13:23,024 - INFO - Polished suggestions generated: 10
+2025-12-15 18:13:23,025 - INFO - Trend critique done: 10 suggestions
+2025-12-15 18:13:23,028 - INFO - Filtered suggestions: 7
+2025-12-15 18:13:23,029 - INFO - Showing 3 outfits to user
+2025-12-15 18:13:27,293 - INFO - App session ended

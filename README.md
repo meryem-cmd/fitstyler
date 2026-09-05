@@ -1,109 +1,168 @@
-🛍️ AI-FitStyler: Your Personal Multi-Agent Fashion Advisor
-Project Overview
-AI-FitStyler is an innovative, web-based fashion recommendation system designed to provide hyper-personalized outfit suggestions. It leverages a multi-agent architecture to combine Computer Vision (CV) analysis of the user's physique (body type and skin tone) with a highly efficient Retrieval-Augmented Generation (RAG) engine for finding optimal, trend-aware, and budget-friendly outfits from a product catalog.
+# AI-FitStyler
 
-The system addresses major gaps in traditional online shopping by offering speed, personalization, and actionable style advice.
+> A multi-agent AI fashion advisor that analyzes your body type and skin tone from a photo, then retrieves personalized outfit recommendations from a product catalog using RAG.
 
-🚀 Key Features
-Precision Body Analysis
-Uses MediaPipe Pose to detect body landmarks and determine the user's body type (slim, curvy, athletic) based on the hip-to-shoulder ratio.
+![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI-red?style=flat-square&logo=streamlit)
+![LangChain](https://img.shields.io/badge/LangChain-RAG-green?style=flat-square)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-CV-orange?style=flat-square)
 
-Skin Tone & Color Palette Detection
-Uses MediaPipe Face Mesh and LAB Color Space analysis to identify skin tone (fair, wheatish, dark) and suggest a complementary color palette.
+---
 
-Rapid RAG Engine
-Utilizes FAISS Vector Store and HuggingFace Embeddings for ultra-fast and semantically relevant outfit retrieval from catalog.csv.
+## What It Does
 
-Trend Critique
-Provides a Trend Score (7/10 to 10/10) with a short fashion commentary for each suggestion.
+Upload a full-body photo, set your gender, occasion, and budget — the system detects your body type and skin tone using computer vision, then searches a product catalog semantically to return outfit suggestions with trend scores and a matching color palette.
 
-User Interface
-Built using Streamlit for a clean, fast, and interactive user experience.
+---
 
-⚙️ System Architecture
-AI-FitStyler follows a Multi-Agent Architecture, orchestrated using custom Python logic and LangChain modules.
+## How It Works
 
-Workflow:
-Input
+```
+User Photo + Preferences
+        ↓
+┌─────────────────────────┐
+│   Computer Vision Layer  │
+│  body_analyzer.py        │  → Detects body type (slim / curvy / athletic)
+│  skin_color_analyzer.py  │  → Detects skin tone + suggests color palette
+└─────────────────────────┘
+        ↓
+┌─────────────────────────┐
+│     RAG Retrieval Layer  │
+│  rag_system.py           │  → FAISS vector store built from catalog.csv
+│  outfit_generator.py     │  → Semantic search: "female curvy party under $50"
+└─────────────────────────┘
+        ↓
+┌─────────────────────────┐
+│    Critique Layer        │
+│  trend_critic.py         │  → Assigns trend score (7–10/10) + comment
+└─────────────────────────┘
+        ↓
+   Streamlit UI (app.py)
+```
 
-User uploads a photo
-Selects Gender, Occasion, and Budget
-Analysis Agents (Computer Vision)
+---
 
-body_analyzer.py
-skin_color_analyzer.py
-Data & Retrieval Layer
+## Features
 
-rag_system.py
-Indexes the product catalog into a FAISS Vector Store
-Generation Agents (RAG)
+- **Body Type Detection** — MediaPipe Pose landmarks + hip-to-shoulder ratio classifies body as slim, curvy, or athletic
+- **Skin Tone Analysis** — MediaPipe Face Mesh samples cheek pixels in LAB color space; classifies as fair, wheatish, or dark
+- **Color Palette Suggestions** — Returns 6 complementary hex colors based on detected skin tone
+- **Semantic Outfit Retrieval** — FAISS + HuggingFace Embeddings (`all-MiniLM-L6-v2`) searches catalog by natural language query
+- **Budget & Gender Filtering** — Post-retrieval filter ensures results match user's price ceiling and gender
+- **Trend Scoring** — Each suggestion gets a 7–10/10 trend score with a style comment
+- **Streamlit UI** — Clean interface with sidebar controls, progress bar, and image display
 
-outfit_generator.py – Performs semantic search
-trend_critic.py – Adds trend scoring and comments
-Output
+---
 
-Results displayed via app.py using Streamlit
-🛠️ Installation and Setup
-Prerequisites
-Python 3.8 or higher
-pip (Python package installer)
-Step 1: Clone the Repository
-git clone <https://github.com/meryem-cmd/fitstyler/>
-cd AI-FitStyler
-Step 2: Install Dependencies
-All required libraries (MediaPipe, OpenCV, Streamlit, LangChain, FAISS, HuggingFace) are listed in requirements.txt.
+## Tech Stack
 
+| Layer | Technology |
+|---|---|
+| UI | Streamlit |
+| Computer Vision | MediaPipe (Pose + Face Mesh), OpenCV |
+| Embeddings | HuggingFace `sentence-transformers/all-MiniLM-L6-v2` |
+| Vector Store | FAISS (via LangChain) |
+| Data | CSV product catalog (48 items) |
+| Language | Python 3.8+ |
+| Logging | Python `logging` module → `app_log.txt` |
+
+---
+
+## Project Structure
+
+```
+AI-FitStyler/
+├── app.py                        # Streamlit entry point
+├── data/
+│   └── catalog.csv               # Product catalog (name, price, image, body type, occasion, gender)
+├── core/
+│   └── rag_system.py             # Builds and saves FAISS index from catalog
+├── agents/
+│   ├── body_analyzer.py          # MediaPipe Pose → body type classification
+│   ├── skin_color_analyzer.py    # MediaPipe Face Mesh → skin tone + palette
+│   ├── outfit_generator.py       # FAISS semantic search → outfit retrieval
+│   └── trend_critic.py           # Trend scoring and commentary
+├── faiss_index/                  # Generated after running rag_system.py
+├── requirements.txt
+└── app_log.txt                   # Auto-generated runtime log
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.8 or higher
+- pip
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/meryem-cmd/fitstyler.git
+cd fitstyler
+
+# 2. Install dependencies
 pip install -r requirements.txt
-Step 3: Build the RAG Index (Mandatory)
-The system must process data/catalog.csv and build the FAISS vector index.
+```
 
+### Build the RAG Index (required before first run)
 
+```bash
 python core/rag_system.py
-Expected Output:
+```
 
-
+Expected output:
+```
 RAG built and saved! Ready for queries.
-Step 4: Run the Application
-Launch the Streamlit interface:
+```
 
+This reads `data/catalog.csv` and creates the `faiss_index/` directory.
 
+### Run the App
+
+```bash
 streamlit run app.py
-The application will open automatically in your browser at:
-http://localhost:8501
+```
 
-👨‍💻 Usage
-Set Preferences
-Use the sidebar to select Gender, Occasion, and Budget.
+Opens at `http://localhost:8501`
 
-Upload Photo
-Upload a clear, full-body image for accurate body type and skin tone detection.
+---
 
-Analyze
-The system displays detected:
+## Usage
 
-Body Type
+1. Set **Gender**, **Occasion**, and **Budget** in the sidebar
+2. Upload a clear, full-body photo
+3. The system displays your detected **body type**, **skin tone**, and **color palette**
+4. Click **Get Outfit Suggestions** to see up to 3 personalized outfits with prices and trend scores
 
-Skin Tone
+---
 
-Suggested Color Palette
+## Known Limitations
 
-Get Suggestions
-Click "Get Outfit Suggestions!" to view personalized outfits with trend scores.
+| Limitation | Detail |
+|---|---|
+| Small catalog | 48 items — retrieval quality improves significantly with more data |
+| No real LLM | Trend scores are randomized (7–10/10); LLM integration (Ollama/OpenAI) is scaffolded in commented code |
+| Image URLs | Sourced from Google/external CDNs — some may break over time |
+| No persistence | No database; results are not saved between sessions |
+| No AR try-on | Planned feature, not implemented |
 
-👥 Team Members
-Name	Student ID
-Maryyam Tanveer	BCSF23M007
-Minahil Shahid	BCSF23M012
-Hassan Ali Pansota	BCSF23M029
-Fatima Mirza	BCSF23M031
+---
 
-🛑 Limitations & Future Scope
-Limitation	Mitigation / Future Enhancement
-Small Dataset	Expand catalog to 10,000+ entries
-Dummy LLM Mode	Integrate real LLM (Ollama / xAI API)
-No Persistence	Add database support (SQLite)
-Image URLs	Improve error handling or use reliable APIs
-No AR Try-On	Implement AR-based outfit overlay
+## Team
 
+| Name | Student ID |
+|---|---|
+| Maryyam Tanveer | BCSF23M007 |
+| Minahil Shahid | BCSF23M012 |
+| Hassan Ali Pansota | BCSF23M029 |
+| Fatima Mirza | BCSF23M031 |
 
+---
+
+## Academic Context
+
+Built as a final project for an AI/Information Systems course. The architecture demonstrates multi-agent design patterns, computer vision pipelines, and retrieval-augmented generation without requiring cloud APIs or paid LLM access.
 

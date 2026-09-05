@@ -141,9 +141,7 @@ Opens at `http://localhost:8501`
 
 
 
-## Academic Context
 
-Built as a final project for an AI course. The architecture demonstrates multi-agent design patterns, computer vision pipelines, and retrieval-augmented generation without requiring cloud APIs or paid LLM access.
 
 ## Academic Context
 

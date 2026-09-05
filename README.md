@@ -139,34 +139,13 @@ Opens at `http://localhost:8501`
 
 ---
 
-## Known Limitations
 
-| Limitation | Detail |
-|---|---|
-| Small catalog | 48 items — retrieval quality improves significantly with more data |
-| No real LLM | Trend scores are randomized (7–10/10); LLM integration (Ollama/OpenAI) is scaffolded in commented code |
-| Image URLs | Sourced from Google/external CDNs — some may break over time |
-| No persistence | No database; results are not saved between sessions |
-| No AR try-on | Planned feature, not implemented |
-
----
-
-## Team
-
-| Name | Student ID |
-|---|---|
-| Maryyam Tanveer | BCSF23M007 |
-| Minahil Shahid | BCSF23M012 |
-| Hassan Ali Pansota | BCSF23M029 |
-| Fatima Mirza | BCSF23M031 |
-
----
 
 ## Academic Context
 
-Built as a final project for an AI/Information Systems course. The architecture demonstrates multi-agent design patterns, computer vision pipelines, and retrieval-augmented generation without requiring cloud APIs or paid LLM access.
+Built as a final project for an AI course. The architecture demonstrates multi-agent design patterns, computer vision pipelines, and retrieval-augmented generation without requiring cloud APIs or paid LLM access.
 
 ## Academic Context
 
-Built as a final project for an AI/Information Systems course. The architecture demonstrates multi-agent design patterns, computer vision pipelines, and retrieval-augmented generation without requiring cloud APIs or paid LLM access.
+Built as a final project for an AI course. The architecture demonstrates multi-agent design patterns, computer vision pipelines, and retrieval-augmented generation without requiring cloud APIs or paid LLM access.
 

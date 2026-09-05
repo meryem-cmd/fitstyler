@@ -166,3 +166,7 @@ Opens at `http://localhost:8501`
 
 Built as a final project for an AI/Information Systems course. The architecture demonstrates multi-agent design patterns, computer vision pipelines, and retrieval-augmented generation without requiring cloud APIs or paid LLM access.
 
+## Academic Context
+
+Built as a final project for an AI/Information Systems course. The architecture demonstrates multi-agent design patterns, computer vision pipelines, and retrieval-augmented generation without requiring cloud APIs or paid LLM access.
+
